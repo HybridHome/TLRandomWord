@@ -38,13 +38,6 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-//        var parentElement = document.getElementById(id);
-//        var listeningElement = parentElement.querySelector('.listening');
-//        var receivedElement = parentElement.querySelector('.received');
-//
-//        listeningElement.setAttribute('style', 'display:none;');
-//        receivedElement.setAttribute('style', 'display:block;');
-
         console.log('Received Event: ' + id);
     },
     setupVue: function() {
@@ -62,9 +55,14 @@ var app = {
             },
             methods: {
                 getRandomWord: function() {
-                    console.log('licj');
-                    var randomIndex = Math.floor(Math.random() * this.words.length);
-                    this.randomWord = this.words[randomIndex];
+                    this.randomWord = '...';
+                    this.$http.get(
+                        'http://api.wordnik.com:80/v4/words.json/randomWord?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5'
+                    ).then(function (response) {
+                        this.randomWord = response.data.word;
+                    }, function (error) {
+                        alert(error.data);
+                    });
                 }
             }
         });
