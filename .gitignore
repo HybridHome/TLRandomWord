@@ -62,12 +62,8 @@ selenium-debug.log
 .idea
 *.js.map
 package-lock.json
-www/
-TLRandomWord/res/
 .gradle/
 .vscode/
-TLRandomWord/
-/TLRandomWord
 *.zip
 *.bin
 *.iml
