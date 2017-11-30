@@ -64,7 +64,7 @@ selenium-debug.log
 package-lock.json
 .gradle/
 .vscode/
-*.zip
+#*.zip
 *.bin
 *.iml
 *.lock
